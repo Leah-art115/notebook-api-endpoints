@@ -1,0 +1,76 @@
+:root {
+  --purple: #c4a2f5;
+  --light-purple: #f4edff;
+  --text-dark: #2d2d2d;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(50, 0, 90, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal {
+  background: var(--light-purple);
+  padding: 2rem;
+  border-radius: 10px;
+  background: #d3c7e5;
+  box-shadow: 0 0 10px rgba(132, 0, 255, 0.3);
+  text-align: center;
+  color: var(--text-dark);
+  min-width: 300px;
+  animation: slideUp 0.4s ease-out;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel {
+  background: white;
+  border: 1px solid var(--purple);
+  color: var(--purple);
+}
+
+.confirm {
+  background: var(--purple);
+  color: black;
+}
+
+@keyframes fadeIn {
+  from {
+    background: rgba(50, 0, 90, 0);
+  }
+  to {
+    background: rgba(50, 0, 90, 0.3);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

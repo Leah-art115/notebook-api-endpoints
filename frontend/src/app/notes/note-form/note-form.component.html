@@ -1,0 +1,14 @@
+<div class="form-container">
+  <h2>{{ isEdit ? 'Edit Note' : 'Create Note' }}</h2>
+
+  <form (ngSubmit)="saveNote()">
+    <label>Title</label>
+    <input type="text" [(ngModel)]="note.title" name="title" required />
+
+    <label>Content</label>
+    <textarea [(ngModel)]="note.content" name="content" rows="6" required></textarea>
+
+    <button type="submit">{{ isEdit ? 'Update Note' : 'Create Note' }}</button>
+  </form>
+</div>
+

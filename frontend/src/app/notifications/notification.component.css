@@ -1,0 +1,103 @@
+:root {
+  --purple: #c4a2f5;
+  --light-purple: #f4edff;
+  --success: #d4edda;
+  --error: #f8d7da;
+  --info: #d1ecf1;
+  --warning: #fff3cd;
+  --text-dark: #2d2d2d;
+}
+
+.notification-container {
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 1000;
+}
+
+.notification {
+  position: relative;
+  background-color: var(--light-purple);
+  border: 1px solid var(--purple);
+  color: var(--text-dark);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(152, 105, 255, 0.2);
+  width: 280px;
+  overflow: hidden;
+  animation: slideIn 0.4s ease;
+}
+
+.notification.success {
+  border-left: 4px solid #28a745;
+}
+.notification.error {
+  border-left: 4px solid #dc3545;
+}
+.notification.info {
+  border-left: 4px solid #17a2b8;
+}
+.notification.warning {
+  border-left: 4px solid #ffc107;
+}
+
+.message {
+  font-size: 0.95rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Sliding timer border (around the whole box) */
+.timer-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 2px solid var(--purple);
+  border-radius: 8px;
+  pointer-events: none;
+  animation: borderTimer linear forwards;
+  animation-duration: 4s;
+}
+
+@keyframes borderTimer {
+  0% {
+    clip-path: inset(0 100% 100% 0);
+  }
+  25% {
+    clip-path: inset(0 0 100% 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  75% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(100% 100% 0 0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}

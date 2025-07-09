@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-light: #faf6ff;
+  --bg-dark: #f0e6ff;
+  --accent: #b388ff;
+  --text-dark: #2d2d2d;
+  --text-light: #ffffff;
+  --border: #d6c8f0;
+  --hover: #e6dbff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.main-container {
+  padding: 1rem 2rem;
+  min-height: 100vh;
+}

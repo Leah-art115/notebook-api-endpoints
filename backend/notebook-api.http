@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
   "title": "My First Note",
-  "content": "This is the content of my first note."
+  "content": "This is the content of our first note."
 }
 
 ### Attempt to create a duplicate note should fail

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -43,7 +45,11 @@ export class NotesService {
       title,
       content,
     ]);
-    return insertResult.rows[0];
+    const row = insertResult.rows[0];
+    return {
+      ...row,
+      created_at: new Date(row.created_at).toISOString(),
+    };
   }
 
   async findAll() {
@@ -53,7 +59,10 @@ export class NotesService {
       ORDER BY created_at DESC;
     `;
     const result = await this.databaseService.query(query);
-    return result.rows;
+    return result.rows.map((row: { created_at: string | number | Date }) => ({
+      ...row,
+      created_at: new Date(row.created_at).toISOString(),
+    }));
   }
 
   async findOne(id: number) {
@@ -66,7 +75,11 @@ export class NotesService {
     if (result.rows.length === 0) {
       throw new NotFoundException(`Note with ID ${id} not found`);
     }
-    return result.rows[0];
+    const row = result.rows[0];
+    return {
+      ...row,
+      created_at: new Date(row.created_at).toISOString(),
+    };
   }
 
   async update(id: number, updateNoteDto: UpdateNoteDto) {
@@ -86,7 +99,11 @@ export class NotesService {
     if (result.rows.length === 0) {
       throw new NotFoundException(`Note with ID ${id} not found`);
     }
-    return result.rows[0];
+    const row = result.rows[0];
+    return {
+      ...row,
+      created_at: new Date(row.created_at).toISOString(),
+    };
   }
 
   async remove(id: number) {

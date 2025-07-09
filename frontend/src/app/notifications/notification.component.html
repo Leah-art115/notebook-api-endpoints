@@ -1,0 +1,11 @@
+<div class="notification-container">
+  <div
+    class="notification"
+    *ngFor="let note of notifications()"
+    [class]="note.type"
+  >
+    <div class="message">{{ note.message }}</div>
+    <div class="timer-border"></div>
+    <button class="close-btn" (click)="dismiss(note.id)">×</button>
+  </div>
+</div>
